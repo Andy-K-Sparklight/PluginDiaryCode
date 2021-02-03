@@ -1,0 +1,4 @@
+name: HelloWorld
+main: rarityeg.helloworld.HelloWorld
+version: 1.0
+api-version: 1.16

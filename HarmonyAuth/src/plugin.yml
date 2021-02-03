@@ -1,0 +1,12 @@
+main: rarityeg.harmonyauth.HarmonyAuth
+version: 1.0
+api-version: 1.16
+name: HarmonyAuth
+commands:
+  login:
+    aliases:
+      - "lg"
+      - "l"
+      - "L"
+    description: "Login or register"
+    usage: "/login <PASSWORD>"
