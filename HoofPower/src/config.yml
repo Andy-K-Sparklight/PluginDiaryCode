@@ -1,0 +1,8 @@
+announcement: |
+  这是一段公告，您可以随意修改。
+  +++
+  使用三个加号来换页。
+  记得使用 UTF-8 编码保存！
+  服务端如果乱码请加上 Java 参数：
+  -Dfile.encoding=UTF-8
+  RarityEG 作品

@@ -1,0 +1,8 @@
+main: rarityeg.hoofpower.HoofPower
+name: HoofPower
+version: 1.0
+api-version: 1.16
+commands:
+  cd:
+    usage: "/cd"
+    description: "Open menu."
