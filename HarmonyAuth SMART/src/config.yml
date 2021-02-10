@@ -1,0 +1,67 @@
+mysql:
+  enabled: false
+  host: localhost
+  port: 3306
+  username: root
+  password: 123456
+  db-name: "harmony-auth-smart"
+
+# 颜色及样式表
+# 使用 & 代替 § 指定样式
+# &0 黑色
+# &1 深蓝
+# &2 深绿
+# &3 湖蓝
+# &4 深红
+# &5 紫色
+# &6 金色
+# &7 灰色
+# &8 深灰
+# &9 蓝色
+# &a 绿色
+# &b 天蓝
+# &c 红色
+# &d 粉红
+# &e 黄色
+# &f 白色
+# &k 乱码字符
+# &l 加粗
+# &m 划掉
+# &n 下划线
+# &o 斜体
+# &r 全部重置
+# 设置的样式能够应用到接着这些消息后的文字，例如 audit-uuid，请小心使用！
+# 颜色代码必须在格式代码之前，并且修改颜色时必须再写一遍格式代码！！！
+
+msg:
+  hint-register: "请输入 /hl <密码> <再输入一次密码> 进行或注册！"
+  hint-login: "请输入 /hl <密码> 进行登录！"
+  login-failed: "密码错误！如忘记密码，使用 /iforgot 恢复密码！"
+  login-success: "登录成功！"
+  register-success: "注册成功！"
+  register-failed: "两次输入密码不一致！"
+  iforgot-newpwd: "请在聊天栏输入新密码。"
+  iforgot-hint: "请在聊天栏向服服务器管理人员说明情况并提供证据。"
+  iforgot-commit: "您的请求已经上报。"
+  iforgot-accepted: "恢复请求已经通过，使用您设置的新密码登录。"
+  iforgot-rejected: "恢复请求未通过，请尝试使用原先的密码登录或提交新的申请。"
+  iforgot-no-available: "密码恢复功能已禁用。"
+  command-handling: "上一条命令正在处理中，请稍后再试！"
+  audit-in: "您已进入审核模式。"
+  audit-out: "您已退出审核模式。"
+  audit-uuid: "玩家 UUID："
+  audit-reason: "申请原因："
+  audit-hint: "输入 y 通过或输入 n 拒绝，输入 q 离开审核模式。"
+  hint: "在登录前，您不能进行操作。"
+
+iforgot: true # 允许 IForgot
+
+auto-login: 300 # 自动登录间隔，单位秒
+
+hook: # 用 ${playerName} 表示玩家名
+  on-login-success: # 登录成功
+    - ""
+  on-login-failed: # 登录失败
+    - ""
+  on-register-success: # 注册成功
+    - ""

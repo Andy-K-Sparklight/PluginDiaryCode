@@ -1,0 +1,23 @@
+main: rarityeg.harmonyauthsmart.HarmonyAuthSMART
+api-version: 1.16
+version: 1.0
+name: HarmonyAuth-SMART
+database: true
+description: "A third-party login plugin."
+author: RarityEG
+commands:
+  hl:
+    aliases:
+      - "l"
+      - "L"
+      - "reg"
+      - "register"
+      - "login"
+      - "log"
+    usage: "/hl <PASSWORD> [<PASSWORD>]"
+    description: "Login or register, judged automatically."
+  iforgot:
+    aliases:
+      - "ifg"
+    usage: "/iforgot"
+    description: "Create a IForgot request or (for OPs) start auditing."
