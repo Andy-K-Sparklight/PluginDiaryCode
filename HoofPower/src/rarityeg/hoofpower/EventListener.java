@@ -38,7 +38,7 @@ public class EventListener implements Listener {
                 double randX = RANDOM.nextInt(200000) - 100000;
                 double randZ = RANDOM.nextInt(200000) - 100000;
                 Location offset = new Location(playerWorld, randX, 0, randZ).toHighestLocation();
-                player.teleport(offset);
+                player.teleport(player.getLocation().add(offset));
                 player.sendMessage(ChatColor.GREEN + "传送成功！");
                 return;
             }
