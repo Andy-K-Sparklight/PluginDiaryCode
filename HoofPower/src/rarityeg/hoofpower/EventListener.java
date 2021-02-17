@@ -34,7 +34,7 @@ public class EventListener implements Listener {
             }
             if (clickedItem.getItemMeta().getDisplayName().equals(Menu.TELEPORT)) {
                 player.closeInventory();
-                World playerWorld = Bukkit.getWorld("world");
+                World playerWorld = Bukkit.getWorlds().get(0);
                 double randX = RANDOM.nextInt(200000) - 100000;
                 double randZ = RANDOM.nextInt(200000) - 100000;
                 Location offset = new Location(playerWorld, randX, 0, randZ).toHighestLocation();
