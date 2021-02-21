@@ -1,7 +1,10 @@
 package rarityeg.harmonyauthsmart;
 
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
+import rarityeg.harmonyauth.api.ILoginManager;
+import rarityeg.harmonyauth.api.IStoredDataManager;
 
 import java.util.Objects;
 import java.util.logging.Level;
@@ -9,6 +12,12 @@ import java.util.logging.Level;
 public class HarmonyAuthSMART extends JavaPlugin {
     public static JavaPlugin instance;
     public static boolean dbError = false;
+
+    @Override
+    public void onLoad() {
+        Bukkit.getServicesManager().register(ILoginManager.class, new APILoginManager(), this, ServicePriority.Normal);
+        Bukkit.getServicesManager().register(IStoredDataManager.class, new APIStoredDataManager(), this, ServicePriority.Normal);
+    }
 
     @Override
     public void onEnable() {
