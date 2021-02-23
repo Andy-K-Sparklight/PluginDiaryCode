@@ -15,6 +15,7 @@ public class HarmonyAuthSMART extends JavaPlugin {
 
     @Override
     public void onLoad() {
+
         Bukkit.getServicesManager().register(ILoginManager.class, new APILoginManager(), this, ServicePriority.Normal);
         Bukkit.getServicesManager().register(IStoredDataManager.class, new APIStoredDataManager(), this, ServicePriority.Normal);
     }
@@ -34,6 +35,8 @@ public class HarmonyAuthSMART extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EventHarmony(), this);
         Objects.requireNonNull(Bukkit.getPluginCommand("hl")).setExecutor(new CommandHandler());
         Objects.requireNonNull(Bukkit.getPluginCommand("iforgot")).setExecutor(new CommandHandler());
+        Objects.requireNonNull(Bukkit.getPluginCommand("hl")).setTabCompleter(new TabHandler());
+        
         if (getConfig().getBoolean("mysql.enabled")) {
             new DBDataManager().loadAll();
         }

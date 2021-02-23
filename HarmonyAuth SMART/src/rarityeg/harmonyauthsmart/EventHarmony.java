@@ -1,5 +1,6 @@
 package rarityeg.harmonyauthsmart;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -227,6 +228,11 @@ public class EventHarmony implements Listener {
                     Date lLogin = idm.getLastLoginTime(id);
                     double seconds = (crDate.getTime() - lLogin.getTime()) / 1000.0;
                     if (seconds <= HarmonyAuthSMART.instance.getConfig().getInt("auto-login")) {
+                        HASPlayerLoginEvent event = new HASPlayerLoginEvent(e.getPlayer(), true);
+                        Bukkit.getPluginManager().callEvent(event);
+                        if (event.isCancelled()) {
+                            return;
+                        }
                         RuntimeDataManager.removeRestrictUUID(id);
                         e.getPlayer().sendMessage(Util.getAndTranslate("msg.login-success"));
                         List<String> hooks = Util.generateHooks("hook.on-login-success", e.getPlayer().getName());

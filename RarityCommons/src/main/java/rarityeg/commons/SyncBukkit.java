@@ -18,6 +18,7 @@ import javax.annotation.ParametersAreNullableByDefault;
  *
  * @see Bukkit
  */
+@SuppressWarnings("deprecation")
 public class SyncBukkit {
     @Nonnull
     private final JavaPlugin pluginInstance;

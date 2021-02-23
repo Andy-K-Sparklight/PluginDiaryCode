@@ -13,6 +13,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.annotation.ParametersAreNullableByDefault;
 import java.util.*;
 
+/**
+ * Build an ItemStack.
+ * Paper changed to use method displayName(Component).
+ * See <a href="https://github.com/PaperMC/Paper/pull/4842">Pull #4842</a>.
+ * For compatibility, we won't change until Spigot and Bukkit change this.
+ *
+ * @see net.kyori.adventure.text.Component
+ */
+@SuppressWarnings("deprecation")
 public class ItemBuilder {
     @Nonnull
     private final ItemStack stack;
@@ -44,6 +53,7 @@ public class ItemBuilder {
 
     @Nonnull
     @ParametersAreNullableByDefault
+
     public ItemBuilder setDisplayName(String name) {
         if (name == null) {
             return this;

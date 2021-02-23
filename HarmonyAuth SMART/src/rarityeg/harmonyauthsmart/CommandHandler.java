@@ -1,5 +1,6 @@
 package rarityeg.harmonyauthsmart;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -71,6 +72,12 @@ public class CommandHandler implements CommandExecutor {
                             return;
                         }
                         if (idm.getPasswordHash(id).equals(Util.calculateMD5(args[0]))) {
+                            HASPlayerLoginEvent event = new HASPlayerLoginEvent(player, false);
+                            Bukkit.getPluginManager().callEvent(event);
+                            if (event.isCancelled()) {
+                                sti(id);
+                                return;
+                            }
                             RuntimeDataManager.removeRestrictUUID(id);
                             player.setWalkSpeed(EventHarmony.originSpeed.get(id));
                             player.sendMessage(Util.getAndTranslate("msg.login-success"));
@@ -94,6 +101,12 @@ public class CommandHandler implements CommandExecutor {
                     }
                     if (args.length < 2 || !args[0].equals(args[1])) {
                         player.sendMessage(Util.getAndTranslate("msg.register-failed"));
+                        sti(id);
+                        return;
+                    }
+                    HASPlayerLoginEvent event = new HASPlayerLoginEvent(player, false);
+                    Bukkit.getPluginManager().callEvent(event);
+                    if (event.isCancelled()) {
                         sti(id);
                         return;
                     }
@@ -175,5 +188,4 @@ public class CommandHandler implements CommandExecutor {
     private static synchronized boolean getIF(UUID id) {
         return NoInterruptList.contains(id);
     }
-
 }
