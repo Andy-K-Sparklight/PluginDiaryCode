@@ -22,7 +22,7 @@ public class JavaPluginR extends JavaPlugin {
      * @throws IllegalStateException When this plugin hasn't been loaded.
      */
     @Nonnull
-    public JavaPluginR getInstance() {
+    public static JavaPluginR getInstance() {
         if (instance == null) {
             throw new IllegalStateException("This plugin hasn't been loaded yet!");
         }
